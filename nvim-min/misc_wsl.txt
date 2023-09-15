@@ -1,0 +1,34 @@
+## Misc. configuration for WSL ##
+
+# SSH keys (Github etc) #
+Use SSH keys for Github instead of other kinds of authentication
+
+For Github, generate an SSH key and add it to ~/.ssh and name it "github".
+Don't forget to add a passphrase, which will be prompted when you open your
+Linux terminal
+
+# Add to .bashrc #
+
+#setup ssh keys and agent
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+    ssh-add ~/.ssh/github
+fi
+
+# Packages to install #
+
+# fzf - for fuzzy finding (not needed at the moment for nvim) #
+sudo apt install fzf
+
+# fd - used by telescope
+# add alias in .bashrc
+sudo apt install fd-find
+
+# ripgrep - used by telescope
+sudo apt install ripgrep
+
+# exuberant-ctags
+sudo apt-get install exuberant-ctags
+
+#ack
+sudo apt install ack
