@@ -1,13 +1,14 @@
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
-map("n", '<C-d>', '<C-d>zz', {})
-map('n', '<C-u>', '<C-u>zz', {})
-map('n', '<C-f>', '<C-f>zz', {})
-map('n', '<C-b>', '<C-b>zz', {})
+--  Makes jumping pages and half pages less dizzying
+map("n", "<C-d>", "<C-d>zz", {})
+map("n", "<C-u>", "<C-u>zz", {})
+map("n", "<C-f>", "<C-f>zz", {})
+map("n", "<C-b>", "<C-b>zz", {})
 
 -- Allow moving multiple lines --
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv", {})
+map("v", "K", ":m '<-2<CR>gv=gv", {})
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
